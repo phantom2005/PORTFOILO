@@ -1,0 +1,51 @@
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+   background: linear-gradient(to right,#00093c,#2d0b00);
+  color: #fff;
+  padding: 100px 0 30px;
+  border-top-left-radius: 100px;
+ font-size: 13px;
+ line-height: 20px;
+
+}
+
+.foo-row{
+    width: 85%;
+    margin: auto;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.foo-col{
+    flex-basis:25%;
+    padding: 10px;
+
+}
+
+.foo-logo{
+    flex-basis: 25%;
+    padding:10px;
+}
+
+.foo-col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+.foo-email-id{
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+ul li{
+    list-style:none ;
+    margin-bottom: 20px;
+}
+ 
+ul li a{
+    text-decoration: none;
+    color: #fff;
+}

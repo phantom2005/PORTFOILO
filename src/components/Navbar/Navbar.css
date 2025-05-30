@@ -17,10 +17,17 @@
 }
 
 .logo{
-   border: 5px solid red;
-   height: auto;
-   
-
+ width:70px;
+ height: 70px;
+ border-radius: 300px;
+ cursor: pointer;
+  border: 1px solid transparent; /* Always allocate space for the border */
+    box-sizing: border-box;       /* Include padding and border in the element's total size */
+    transition: border-color 0.3s ease;
+}
+.logo:hover{
+    outline: 1.5px solid #a993fe;
+    box-shadow: 0 5px 20px rgba(126, 97, 231, 0.7);
 }
 
 .nav-content ul{
@@ -80,6 +87,7 @@
     color: #a993fe;
     background: #000;
     outline: 1.5px solid #a993fe;
+     box-shadow: 0 5px 20px rgba(126, 97, 231, 0.7);
 
 
 }
@@ -107,8 +115,9 @@ display: none;
 .menu-btn:hover{
     color: #a993fe;
     background: #000;
-    border: 1px solid ##a993fe;
+    border: 1px solid #a993fe;
 }
+
 @media(max-width :425px){
 .logo{
     width:10rem;

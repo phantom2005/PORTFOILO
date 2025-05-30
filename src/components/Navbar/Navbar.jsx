@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
   <nav className="nav-wrapper">
     <div className="nav-content">
-        <img src="" alt="" className="logo" />
+        <img src="/assets/profilepic/avatar.jpg" alt="" className="logo" />
         <ul>
             <li><a href="" className="menu-items">HOME</a></li>
             <li><a href="" className="menu-items">SKILLS</a></li>
