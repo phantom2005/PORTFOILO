@@ -6,10 +6,10 @@ const Navbar = () => {
     <div className="nav-content">
         <img src="/assets/profilepic/avatar.jpg" alt="" className="logo" />
         <ul>
-            <li><a href="" className="menu-items">HOME</a></li>
-            <li><a href="" className="menu-items">SKILLS</a></li>
-            <li><a href="" className="menu-items">WORK</a></li>
-            <li><a href="" className="menu-items">CONTACT</a></li>
+            <li><a href="/" className="menu-items">HOME</a></li>
+            <li><a href="/" className="menu-items">SKILLS</a></li>
+            <li><a href="/" className="menu-items">WORK</a></li>
+            <li><a href="/" className="menu-items">CONTACT</a></li>
         <button className="contact-btn">HIRE ME</button>
         </ul>
         <button className="menu-btn" onClick={()=>{}}>
