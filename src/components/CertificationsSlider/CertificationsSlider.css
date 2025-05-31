@@ -1,0 +1,299 @@
+/* General Section Styling */
+.certificationsSection {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  overflow: hidden; /* Hide anything outside the slider container */
+  position: relative; /* Needed for z-index context of zoomed card if not fixed */
+  z-index: 1; /* Ensure this section is above other potential content, but below overlay */
+}
+
+.certificationsSection h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Slider Container */
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  padding: 20px 0;
+  cursor: grab; /* Indicates interactivity */
+}
+
+.sliderContainer:active {
+  cursor: grabbing;
+}
+
+
+/* Slider Track */
+.sliderTrack {
+  display: inline-flex;
+  animation: slideAnimation var(--_animation-duration) linear infinite;
+  animation-play-state: running;
+  /* Added to prevent elements from "jumping" during position fixed transformation */
+  will-change: transform;
+}
+
+/* Pause animation on hover over the slider container */
+/* We'll handle this in JS now for better control with the zoom feature */
+/* .sliderTrack:hover {
+  animation-play-state: paused;
+} */
+
+
+/* Individual Certification Card */
+.certificationCard {
+  min-width: 320px;
+  max-width: 350px;
+  flex-shrink: 0;
+  margin: 0 15px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Added opacity for smooth hide */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer; /* Indicates it's clickable */
+  user-select: none; /* Prevent text selection on click/drag */
+}
+
+.certificationCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* When a card is zoomed, hide the original one in the slider */
+.zoomedCardHidden {
+  opacity: 0; /* Make it invisible */
+  pointer-events: none; /* Make it unclickable */
+}
+
+
+/* Image Wrapper for aspect ratio control */
+.certificateImageWrapper {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* If you want a fixed height for the image area: */
+  /* height: 180px; */
+}
+
+.certificateImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  object-fit: contain;
+  max-height: 180px; /* Limit max height of image */
+}
+
+.certificationCard p {
+  font-size: 0.95em;
+  color: #777;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.certificationCard strong {
+  color: #555;
+}
+
+.certificationCard a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.certificationCard a:hover {
+  text-decoration: underline;
+}
+
+/* --- Zoomed Card Styles --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  z-index: 1000; /* Ensure it's on top */
+  backdrop-filter: blur(5px); /* Optional: blur background content */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  cursor: pointer;
+  animation: fadeIn 0.3s ease-out forwards; /* Smooth fade in */
+}
+
+.zoomedCard {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8); /* Start slightly smaller for scale-in effect */
+  width: 50vw; /* Takes 50% of viewport width */
+  max-width: 600px; /* Max width to prevent it from getting too large on very wide screens */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1001; /* Above the overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth transitions */
+  animation: zoomIn 0.3s ease-out forwards; /* Scale in animation */
+}
+
+.zoomedImageWrapper {
+  width: 90%; /* Image takes most of the zoomed card's width */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zoomedImage {
+  width: 100%;
+  height: auto;
+  max-height: 70vh; /* Don't let it get too tall */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.zoomedCard h3 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.zoomedCard p {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.zoomedCard a {
+  margin-top: 20px;
+  font-size: 1.1em;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.zoomedCard a:hover {
+  background-color: #0056b3;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #aaa;
+  cursor: pointer;
+  z-index: 1002; /* Ensure it's above the card content */
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #777;
+}
+
+/* Keyframe Animations for opening/closing */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Keyframe for continuous slider animation */
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--_slider-width)));
+  }
+}
+
+/* Responsive Adjustments for Zoomed Card */
+@media (max-width: 900px) {
+  .zoomedCard {
+    width: 65vw; /* Wider on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .certificationCard {
+    min-width: 280px;
+    margin: 0 10px;
+    padding: 15px;
+  }
+  .certificationsSection h2 {
+    font-size: 2em;
+  }
+  .certificateImage {
+    max-height: 150px;
+  }
+  .zoomedCard {
+    width: 80vw; /* Even wider on smaller screens */
+    padding: 20px;
+  }
+  .zoomedCard h3 {
+    font-size: 1.5em;
+  }
+  .zoomedCard p {
+    font-size: 1em;
+  }
+  .zoomedCard a {
+    font-size: 1em;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificationCard {
+    min-width: 85vw;
+    margin: 0 2.5vw;
+    padding: 15px;
+  }
+  .certificationsSection {
+    padding: 30px 10px;
+  }
+  .certificateImage {
+    max-height: 120px;
+  }
+  .zoomedCard {
+    width: 90vw; /* Nearly full width on mobile */
+    padding: 15px;
+  }
+  .closeButton {
+    font-size: 1.8em;
+    top: 10px;
+    right: 10px;
+  }
+}

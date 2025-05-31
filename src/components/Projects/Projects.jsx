@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import "./Projects.css";
 
@@ -6,7 +6,8 @@ const projects = [
   {
     id: 1,
     title: "SETLABS",
-    description: "Find and customize your ideal office, cabin, or flexible workspace with ease. Your perfect spot, personalized.",
+    description:
+      "Find and customize your ideal office, cabin, or flexible workspace with ease. Your perfect spot, personalized.",
     image: "\\assets\\projectpic\\setlabpic.jpg",
     tags: ["HTML", "CSS", "JAVASCRIPT"],
     demoUrl: "#",
@@ -15,46 +16,49 @@ const projects = [
   {
     id: 2,
     title: "JIVANAMRIT",
-    description: "Empower your agricultural activities with our advanced AI-integrated web application. SmartFarm AI provides farmers with cutting-edge tools.",
+    description:
+      "Empower your agricultural activities with our advanced AI-integrated web application. SmartFarm AI provides farmers with cutting-edge tools.",
     image: "\\assets\\projectpic\\jivanamirt.jpeg",
-    tags: ["HTML", "CSS","JAVASCRIPT", "MONGODB"],
+    tags: ["HTML", "CSS", "JAVASCRIPT", "MONGODB"],
     demoUrl: "#",
     githubUrl: "#",
   },
   {
     id: 3,
     title: "HIVEMIND",
-    description: "This full-stack web application integrates blockchain technology to create a secure and transparent platform for managing job and internship opportunities.",
+    description:
+      "This full-stack web application integrates blockchain technology to create a secure and transparent platform for managing job and internship opportunities.",
     image: "\\assets\\projectpic\\hivehimdpic.png",
     tags: ["React", "Node.js", "Stripe"],
     demoUrl: "#",
     githubUrl: "#",
   },
-    {
+  {
     id: 4,
     title: "TIC-TAC-TOE",
-    description: "A classic Tic Tac Toe for interactive gameplay. Place your X's and O's and try to get three in a row!",
+    description:
+      "A classic Tic Tac Toe for interactive gameplay. Place your X's and O's and try to get three in a row!",
     image: "\\assets\\projectpic\\gamepic.jpg",
     tags: ["React", "Node.js", "Stripe"],
     demoUrl: "#",
     githubUrl: "#",
   },
 
-    {
+  {
     id: 5,
     title: "ASHRAY",
     description: "!! DETAILS ARE  LOCKED DUE TO AN AGREEMENT!!",
-    image:"\\assets\\projectpic\\ashray.jpeg",
-    tags: [ ],
+    image: "\\assets\\projectpic\\ashray.jpeg",
+    tags: [],
     // demoUrl: "#",
     // githubUrl: "#",
   },
-    {
+  {
     id: 6,
     title: "",
     description: "",
     image: "\\assets\\projectpic\\nextpic.jpg",
-     tags: [],
+    tags: [],
     // demoUrl: "#",
     // githubUrl: "#",
   },
@@ -66,7 +70,8 @@ export const ProjectsSection = () => {
       <div className="projects-container">
         <h2 className="projects-heading">
           {" "}
-          Featured <span className="projects-heading-highlight"> Projects </span>
+          Featured{" "}
+          <span className="projects-heading-highlight"> Projects </span>
         </h2>
 
         <p className="projects-description">
@@ -76,10 +81,7 @@ export const ProjectsSection = () => {
 
         <div className="projects-grid">
           {projects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card-wrapper"
-            >
+            <div key={project.id} className="project-card-wrapper">
               <div className="project-image-hider">
                 <img
                   src={project.image}
