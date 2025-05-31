@@ -1,0 +1,276 @@
+/* Hero Section Layout */
+.hero-section {
+  padding: 4px 7vw; /* py-4 px-[7vw] */
+  font-family: sans-serif; /* font-sans */
+  margin-top: 4rem; /* mt-16 */
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-left: 7vw;
+    padding-right: 7vw;
+    margin-top: 6rem; /* md:mt-24 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-left: 20vw;
+    padding-right: 20vw;
+    margin-top: 8rem; /* lg:mt-32 */
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column-reverse; /* flex-col-reverse */
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row; /* md:flex-row */
+  }
+}
+
+/* Left Side - Text Container */
+.hero-text-container {
+  text-align: center; /* text-center */
+  margin-top: 2rem; /* mt-8 */
+}
+
+@media (min-width: 768px) {
+  .hero-text-container {
+    width: 50%; /* md:w-1/2 */
+    text-align: left; /* md:text-left */
+    margin-top: 0; /* md:mt-0 */
+  }
+}
+
+.hero-greeting {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem; /* mb-2 */
+  line-height: 1.25; /* leading-tight */
+}
+
+@media (min-width: 640px) {
+  .hero-greeting {
+    font-size: 2.25rem; /* sm:text-4xl */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-greeting {
+    font-size: 3rem; /* md:text-5xl */
+  }
+}
+
+.hero-name {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem; /* mb-4 */
+  line-height: 1.25; /* leading-tight */
+}
+
+@media (min-width: 640px) {
+  .hero-name {
+    font-size: 3rem; /* sm:text-5xl */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-name {
+    font-size: 3.75rem; /* md:text-6xl */
+  }
+}
+
+.hero-skills {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: #8245ec; /* text-[#8245ec] */
+  line-height: 1.25; /* leading-tight */
+}
+
+@media (min-width: 640px) {
+  .hero-skills {
+    font-size: 1.5rem; /* sm:text-2xl */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-skills {
+    font-size: 1.875rem; /* md:text-3xl */
+  }
+}
+
+.hero-skills-prefix {
+  color: white;
+}
+
+.hero-cursor {
+  color: #8245ec; /* text-[#8245ec] */
+}
+
+.hero-description {
+  font-size: 1rem; /* text-base */
+  color: #9ca3af; /* text-gray-400 */
+  margin-bottom: 2.5rem; /* mb-10 */
+  margin-top: 2rem; /* mt-8 */
+  line-height: 1.625; /* leading-relaxed */
+}
+
+@media (min-width: 640px) {
+  .hero-description {
+    font-size: 1.125rem; /* sm:text-lg */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-description {
+    font-size: 1.125rem; /* md:text-lg */
+  }
+}
+
+/* Buttons Container Styling */
+.hero-buttons-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons on small screens */
+  gap: 1rem; /* Space between buttons */
+  margin-top: 1.25rem; /* mt-5 from original button */
+  align-items: center; /* Center buttons horizontally on small screens */
+}
+
+@media (min-width: 640px) { /* Adjust for larger mobile/tablet screens */
+  .hero-buttons-container {
+    flex-direction: row; /* Display buttons in a row */
+    justify-content: center; /* Center buttons when in a row */
+  }
+}
+
+@media (min-width: 768px) { /* Align buttons to the left on desktop */
+  .hero-buttons-container {
+    justify-content: flex-start;
+  }
+}
+
+
+.hero-cv-button,
+.hero-connect-button { /* Apply common styles to both buttons */
+  display: inline-block;
+  color: white;
+  padding: 0.75rem 2rem; /* py-3 px-8 */
+  border-radius: 9999px; /* rounded-full */
+  font-size: 1.125rem; /* text-lg */
+  font-weight: bold;
+  transition: all 300ms ease; /* transition duration-300 */
+  transform: scale(1); /* initial scale for transform */
+  text-decoration: none; /* Remove underline from links */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.hero-cv-button {
+  background: linear-gradient(90deg, #8245ec, #a855f7);
+  box-shadow: 0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec;
+}
+
+.hero-connect-button {
+  background: transparent; /* Make it transparent */
+  border: 2px solid #8245ec; /* Add a border */
+  box-shadow: 0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 20px rgba(130, 69, 236, 0.3); /* Lighter shadow */
+}
+
+.hero-cv-button:hover,
+.hero-connect-button:hover {
+  transform: scale(1.05); /* hover:scale-105 */
+}
+
+/* Right Side - Image Container */
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  /* Removed md:justify-end as the flip card needs to be centered within its container */
+}
+
+@media (min-width: 768px) {
+  .hero-image-container {
+    width: 50%; /* md:w-1/2 */
+  }
+}
+
+/* Flip Card Styling */
+.flip-card {
+  background-color: transparent;
+  width: 12rem; /* w-48 */
+  height: 12rem; /* h-48 */
+  perspective: 1000px; /* This creates the 3D effect */
+  border: 4px solid #8b5cf6; /* border-4 border-purple-700 */
+  border-radius: 9999px; /* rounded-full */
+  /* Ensure overflow is visible for the 3D effect to work correctly */
+  overflow: hidden; /* Keep image within bounds */
+  box-shadow: 0 10px 20px rgba(130, 69, 236, 0.5); /* drop-shadow */
+}
+
+@media (min-width: 640px) {
+  .flip-card {
+    width: 16rem; /* sm:w-64 */
+    height: 16rem; /* sm:h-64 */
+  }
+}
+
+@media (min-width: 768px) {
+  .flip-card {
+    width: 30rem; /* md:w-[30rem] */
+    height: 30rem; /* md:h-[30rem] */
+  }
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s; /* Smooth transition for the flip */
+  transform-style: preserve-3d; /* Required for 3D transformations */
+}
+
+/* Do a horizontal flip when the container has the 'is-hovered' class */
+.flip-card.is-hovered .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden; /* Hide the back side during the flip */
+  border-radius: 9999px; /* rounded-full */
+  overflow: hidden; /* Ensure image stays within the circle */
+}
+
+/* Style the front side (default image) */
+.flip-card-front {
+  background-color: #bbb; /* Fallback background */
+  color: black;
+}
+
+/* Style the back side (hover image) */
+.flip-card-back {
+  background-color: #8245ec; /* Example background for the back */
+  color: white;
+  transform: rotateY(180deg); /* Initially rotate the back side to be hidden */
+}
+
+.hero-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9999px; /* rounded-full */
+}
