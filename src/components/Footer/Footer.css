@@ -1,17 +1,14 @@
-footer{
+footer {
     width: 100%;
-    /* position: absolute;
-    bottom: 0; */
-   background: linear-gradient(to right,#00093c,#2d0b00);
-  color: #fff;
-  padding: 10px 0 10px;
-  border-bottom-left-radius: 50px;
- font-size: 13px;
- line-height: 20px;
-
+    background: linear-gradient(to right,#00093c,#2d0b00);
+    color: #fff;
+    padding: 10px 0 10px;
+    border-bottom-left-radius: 50px;
+    font-size: 13px;
+    line-height: 20px;
 }
 
-.foo-row{
+.foo-row {
     width: 85%;
     margin: auto;
     display:flex;
@@ -19,58 +16,91 @@ footer{
     align-items: flex-start;
     justify-content: space-between;
 }
-.foo-col{
+
+.foo-col {
     flex-basis:25%;
     padding: 10px;
-
+    box-sizing: border-box;
 }
-.foo-col h3{
+
+.foo-col h3 {
     width: fit-content;
     margin-bottom: 40px;
     position: relative;
 }
 
-.foo-logo{
+.foo-logo {
     flex-basis: 25%;
     padding:10px;
+    box-sizing: border-box;
 }
 
+/* Styles for the new "Thank You!" heading within .foo-logo */
+.foo-logo h3 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff;
+  width: auto; /* Override fit-content from general foo-col h3 */
+}
 
-.foo-email-id{
+/* Styles for the paragraph within .foo-logo */
+.foo-logo p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #e0e0e0;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.foo-email-id {
     width: fit-content;
     border-bottom: 1px solid #ccc;
     margin: 20px 0;
 }
-ul li{
+
+ul li {
     list-style:none ;
     margin-bottom: 20px;
 }
  
-ul li a{
+ul li a {
     text-decoration: none;
     color: #fff;
 }
 
-form{
+form {
     padding-bottom: 15px;
     display: flex;
     align-items: center;
-    align-items:center;
     justify-content:space-between;
     border-bottom: 1px solid #ccc;
     margin-bottom: 50px;
+    flex-wrap: nowrap;
+}
 
-}
-form:hover{
+form:hover {
     border-bottom: 1px solid #a993fe ;
-/* box-shadow: 0 4px 2px -2px rgba(126, 97, 231, 0.7); */
 }
-form input{
+
+form input {
     width: 100%;
-     background:transparent;
-     color:#ccc;
-     border: 0;
-     outline: none;
+    background:transparent;
+    color:#ccc;
+    border: 0;
+    outline: none;
+    padding: 5px 0;
+}
+
+form button {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #a993fe;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .foo-icon {
@@ -78,16 +108,13 @@ form input{
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
-    /* Changed transition to be more specific and smoother */
-    transition: all 0.3s ease-in-out; /* Smoother transition */
+    transition: all 0.3s ease-in-out;
     border: none;
     outline: 1.5px solid transparent;
     text-align: center;
     line-height: 40px;
     margin-right: 15px;
-    /* Added for better image scaling within the circular icon */
     object-fit: cover;
-    /* Ensures background is covered, good if using background images */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -96,53 +123,179 @@ form input{
 .foo-icon:hover {
     outline: 2px solid #a993fe;
     box-shadow: 0 5px 20px rgba(126, 97, 231, 0.7);
-    /* Add a subtle lift effect on hover */
     transform: translateY(-5px);
 }
 
 .made-with-section {
-  text-align: center;
-  margin-top: 40px;
-  color: #ccc;
-  font-size: 0.85em;
-  padding: 10px 0;
+    text-align: center;
+    margin-top: 40px;
+    color: #ccc;
+    font-size: 0.85em;
+    padding: 10px 0;
 }
 
 .made-with-section p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
 }
 
 .heart-static {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 5px;
-  color: #e74c3c;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    color: #e74c3c;
 }
 
 .react-spin {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 5px;
-  line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    line-height: 1;
 }
 
 .react-spin svg {
-  font-size: 1.5em;
-  color: #61dafb;
+    font-size: 1.5em;
+    color: #61dafb;
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .react-spin {
-  animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .foo-row {
+        width: 90%;
+    }
+
+    .foo-col {
+        flex-basis: 50%;
+        margin-bottom: 20px;
+    }
+
+    .foo-logo {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .foo-col h3 {
+        margin-bottom: 20px;
+    }
+
+    /* Adjust specific styles for the "Thank You!" section on tablets */
+    .foo-logo h3 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .foo-logo p {
+      font-size: 0.9em;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 30px;
+    }
+
+    form input {
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    .foo-email-id {
+        width: 100%;
+        text-align: center;
+    }
+
+    .social-icons-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 0 10px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .foo-row {
+        width: 95%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foo-col, .foo-logo {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .foo-col:last-child {
+        margin-bottom: 0;
+    }
+
+    .foo-col h3 {
+        margin-bottom: 15px;
+        font-size: 1.5em;
+    }
+
+    /* Adjust specific styles for the "Thank You!" section on mobile */
+    .foo-logo h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .foo-logo p {
+      font-size: 0.85em;
+      max-width: 95%;
+      margin: 0 auto;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+    }
+
+    .foo-email-id {
+        margin: 15px auto;
+    }
+
+    .foo-icon {
+        margin-right: 10px;
+        height: 35px;
+        width: 35px;
+        line-height: 35px;
+    }
+    
+    .social-icons-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .made-with-section {
+        margin-top: 25px;
+        font-size: 0.75em;
+    }
 }

@@ -3,6 +3,9 @@
 import React from 'react';
 import './About.css'; // Make sure this path is correct
 
+// 1. Import your image using a relative path
+import vaibhavPhoto from '../../assets2/avatar/dppic1.jpg'; // Adjust path if 'avatar' is in a different location relative to About.jsx
+
 const About = () => {
   return (
     <section className="about-section" id="about">
@@ -10,26 +13,20 @@ const About = () => {
         <h2 className="about-title">About Me</h2>
         <div className="about-content">
           <div className="about-image-wrapper">
-            {/* Replace "your-photo.jpg" with your actual image path.
-              If your image is in the 'public' folder, you can use:
-              src={`${process.env.PUBLIC_URL}/your-photo.jpg`}
-              If imported, e.g., 'import myPhoto from '../assets/my-photo.jpg';', use:
-              src={myPhoto}
-            */}
-            <img 
-              src="https://via.placeholder.com/300/007bff/ffffff?text=Your+Photo" // Placeholder for now
-              alt="Your Name" 
-              className="about-image" 
+            {/* 2. Use the imported variable for the src */}
+            <img
+              src={vaibhavPhoto}
+              alt="Vaibhav"
+              className="about-image"
             />
           </div>
           <div className="about-text">
             <p>
-              Hello there! I'm **[Your Name]**, a passionate **[Your Profession/Role, e.g., Software Engineer, UX Designer, Data Scientist]** based in **[Your City/Region, e.g., Muradnagar, Uttar Pradesh, India]**.
+              Hi! I'm Vaibhav, an aspiring innovator currently pursuing my B.Tech in **Computer Science (AI) at KIET Group of Institutions.
             </p>
             <p>
-              My journey in **[mention your field, e.g., web development, product design, data analytics]** began **[mention when/how, e.g., X years ago, during my academic pursuits]**. I thrive on transforming complex challenges into elegant, user-centric solutions.
+              Beyond the classroom, I'm a creative soul with a burning passion for discovery across **AI, SDET, and web development. My journey in technology is deeply intertwined with my love for exploring the unknown—a personal quest to understand how things work and how they can be made better. I thrive on translating intricate challenges into intuitive, high-impact solutions that truly make a difference.
             </p>
-            
           </div>
         </div>
       </div>

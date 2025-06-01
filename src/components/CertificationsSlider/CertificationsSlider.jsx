@@ -1,14 +1,34 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './CertificationsSlider.css';
 
-    const certificationsData = [
-  { id: 1, image: '\\projectpic\\jivanamirt.jpeg', issuer: 'mr', date: 'Jan 2023', alt: 'AWS Certified Cloud Practitioner', verificationUrl: '\\projectpic\\jivanamirt.jpeg' },
-  { id: 2, image: '\\projectpic\\jivanamirt.jpeg', issuer: 'Google', date: 'Mar 2023', alt: 'Google Analytics Certified', verificationUrl: 'https://example.com/google' },
-  { id: 3, image: '\\projectpic\\jivanamirt.jpeg', issuer: 'Scrum Alliance', date: 'May 2023', alt: 'Certified ScrumMaster (CSM)', verificationUrl: 'https://example.com/scrum' },
-  { id: 4, image: '\\projectpic\\jivanamirt.jpeg', issuer: 'Udemy (Maximilian Schwarzmüller)', date: 'Jul 2023', alt: 'React - The Complete Guide', verificationUrl: 'https://example.com/react' },
-  { id: 5, image: '\\projectpic\\jivanamirt.jpeg', issuer: 'IBM', date: 'Sep 2023', alt: 'Cybersecurity Fundamentals', verificationUrl: 'https://example.com/cyber' },
-  { id: 6, image: '\\projectpic\\jivanamirt.jpeg', issuer: 'Coursera (Andrew Ng)', date: 'Nov 2023', alt: 'Machine Learning Specialization', verificationUrl: 'https://example.com/ml' },
-  // Add more certifications here
+import html from '../../assets2/cerificates/html-css.jpg';
+import webthree from '../../assets2/cerificates/web3.jpg';
+import fltp1 from '../../assets2/cerificates/fltp1day.jpg';
+import fltp2 from '../../assets2/cerificates/day2fltp.jpg';
+import blend from '../../assets2/cerificates/devblend.png';
+import devup from '../../assets2/cerificates/dev-up bootcamp.jpg';
+import tally from '../../assets2/cerificates/tally.jpg';
+import fiftydays from '../../assets2/cerificates/50daysleet.png';
+import maybadge from '../../assets2/cerificates/mayleet.png';
+import palo from '../../assets2/cerificates/paloaulto.jpg';
+import js from '../../assets2/cerificates/javascript.jpg';
+import hwd from '../../assets2/cerificates/hwd.jpg'
+import bvest from '../../assets2/cerificates/bvest.jpg';
+
+const certificationsData = [
+  { id: 1, image: fiftydays, issuer: '50 Days of Code', date: 'Jan 2023', alt: '50 Days of Code Challenge', verificationUrl: '' },
+  { id: 2, image: html, issuer: 'The Odin Project', date: 'Mar 2023', alt: 'HTML & CSS Fundamentals', verificationUrl: '' },
+  { id: 3, image: webthree, issuer: 'Alchemy University', date: 'May 2023', alt: 'Web3 Development Bootcamp', verificationUrl: '' },
+  { id: 4, image: fltp1, issuer: 'FLTP', date: 'Jul 2023', alt: 'FLTP Day 1 Workshop', verificationUrl: '' },
+  { id: 5, image: fltp2, issuer: 'FLTP', date: 'Sep 2023', alt: 'FLTP Day 2 Workshop', verificationUrl: '' },
+  { id: 6, image: blend, issuer: 'DevBlend Hackathon', date: 'Nov 2023', alt: 'DevBlend Hackathon Participant', verificationUrl: '' },
+  { id: 7, image: devup, issuer: 'Dev-Up Bootcamp', date: 'Dec 2023', alt: 'Dev-Up Frontend Bootcamp', verificationUrl: '' },
+  { id: 8, image: tally, issuer: 'Tally Education', date: 'Jan 2024', alt: 'Tally.ERP 9 Certified', verificationUrl: '' },
+  { id: 9, image: maybadge, issuer: 'MayLeet Challenge', date: 'May 2024', alt: 'MayLeet Coding Challenge', verificationUrl: '' },
+  { id: 10, image: palo, issuer: 'Palo Alto Networks', date: 'Jun 2024', alt: 'Palo Alto Network Security', verificationUrl: '' },
+  { id: 11, image: js, issuer: 'FreeCodeCamp', date: 'Jul 2024', alt: 'JavaScript Algorithms and Data Structures', verificationUrl: '' },
+  { id: 12, image: hwd, issuer: 'HWD Summit', date: 'Aug 2024', alt: 'HWD Summit Attendee', verificationUrl: '' },
+  { id: 13, image: bvest, issuer: 'B-Vest Tech Fest', date: 'Sep 2024', alt: 'B-Vest Tech Fest Participant', verificationUrl: '' },
 ];
 
 const CertificationsSlider = () => {
@@ -28,7 +48,7 @@ const CertificationsSlider = () => {
           const originalContentWidth = individualCardWidth * totalCards;
           setSliderWidth(originalContentWidth);
 
-          const speedFactor = 0.05;
+          const speedFactor = 0.1;
           const duration = originalContentWidth / speedFactor;
           setAnimationDuration(`${duration / 1000}s`);
         }
@@ -75,8 +95,8 @@ const CertificationsSlider = () => {
             '--_animation-duration': animationDuration,
             minWidth: certificationsData.length > 0 ? 'auto' : '100%',
           }}
-          onMouseEnter={() => { if (!zoomedCert) sliderTrackRef.current.style.animationPlayState = 'paused'; }}
-          onMouseLeave={() => { if (!zoomedCert) sliderTrackRef.current.style.animationPlayState = 'running'; }}
+          onMouseEnter={() => { if (!zoomedCert && sliderTrackRef.current) sliderTrackRef.current.style.animationPlayState = 'paused'; }}
+          onMouseLeave={() => { if (!zoomedCert && sliderTrackRef.current) sliderTrackRef.current.style.animationPlayState = 'running'; }}
         >
           {duplicatedCertifications.map((cert, index) => (
             <div
@@ -85,12 +105,18 @@ const CertificationsSlider = () => {
               onClick={() => handleCardClick(cert)}
             >
               <div className="certificateImageWrapper">
-                <img src={cert.image} alt={cert.alt || `Certificate: ${cert.issuer}`} className="certificateImage" />
+                <img src={cert.image} alt={cert.alt || `Certificate from ${cert.issuer}`} className="certificateImage" />
               </div>
               <p><strong>Issued by:</strong> {cert.issuer}</p>
               <p><strong>Date:</strong> {cert.date}</p>
               {cert.verificationUrl && (
-                <a href={cert.verificationUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                <a
+                  href={cert.verificationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="verificationLink"
+                >
                   Verify Credential
                 </a>
               )}
@@ -105,13 +131,17 @@ const CertificationsSlider = () => {
           <div className="zoomedCard">
             <button className="closeButton" onClick={handleOverlayClick}>&times;</button>
             <div className="zoomedImageWrapper">
-              <img src={zoomedCert.image} alt={zoomedCert.alt || `Certificate: ${zoomedCert.issuer}`} className="zoomedImage" />
+              <img src={zoomedCert.image} alt={zoomedCert.alt || `Certificate Details`} className="zoomedImage" />
             </div>
             <h3>{zoomedCert.alt || 'Certificate Details'}</h3>
-            <p><strong>Issued by:</strong> {zoomedCert.issuer}</p>
-            <p><strong>Date:</strong> {zoomedCert.date}</p>
+            {/* Removed the 'Issued by' and 'Date' lines from the zoomed card */}
             {zoomedCert.verificationUrl && (
-              <a href={zoomedCert.verificationUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={zoomedCert.verificationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="zoomedVerificationLink"
+              >
                 Verify Credential
               </a>
             )}

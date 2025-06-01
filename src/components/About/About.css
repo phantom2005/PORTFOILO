@@ -1,7 +1,7 @@
 /* src/components/About.css */
 
 .about-section {
-  padding: 60px 20px;
+  padding: 10px 10px 20px 10px;
   background: linear-gradient(135deg, #f0f4f8 0%, #e0e7ee 100%);
   color: #333;
   text-align: center;
@@ -20,7 +20,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2.5em;
   margin-bottom: 40px;
-  color: #2c3e50;
+color: #19135e;
   position: relative;
   display: inline-block;
   letter-spacing: 0.5px;
@@ -32,17 +32,17 @@
   left: 50%;
   bottom: -10px;
   transform: translateX(-50%);
-  width: 70px;
-  height: 4px;
-  background-color: #007bff;
+  width:none;
+  height: 3px;
+  background-color: #19135e;
   border-radius: 3px;
   transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
-.about-title:hover::after {
-  width: 100px;
-  background-color: #0056b3;
-}
+/* .about-title:hover::after {
+  width: 150px;
+  background-color:  #a993fe;
+} */
 
 .about-content {
   display: flex;
@@ -56,7 +56,7 @@
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(114, 41, 171, 0.08);
 }
 
 @keyframes slideInUp {
@@ -78,9 +78,9 @@
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-  border: 5px solid #007bff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  width: 200px;
+   outline: 1px solid #99262633;
+    box-shadow: 0 5px 40px rgba(160, 39, 39, 0.7);
+width: 200px;
   height: 200px;
   display: flex;
   justify-content: center;

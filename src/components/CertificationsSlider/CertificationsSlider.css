@@ -11,7 +11,7 @@
 .certificationsSection h2 {
   font-size: 2.5em;
   margin-bottom: 30px;
-  color: #333;
+  color: #19135e;
 }
 
 /* Slider Container */
@@ -71,7 +71,9 @@
 
 .certificationCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      
+    box-shadow: 0 5px 20px rgba(126, 97, 231, 0.7);
+
 }
 
 /* When a card is zoomed, hide the original one in the slider */
@@ -173,6 +175,7 @@
   max-height: 70vh; /* Don't let it get too tall */
   object-fit: contain;
   border-radius: 8px;
+  
 }
 
 .zoomedCard h3 {
@@ -209,7 +212,7 @@
   background: none;
   border: none;
   font-size: 2em;
-  color: #aaa;
+  color: #a763ef;
   cursor: pointer;
   z-index: 1002; /* Ensure it's above the card content */
   transition: color 0.2s ease;
