@@ -211,7 +211,10 @@
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(130, 69, 236, 0.5);
 }
-
+.flip-card:hover{
+      outline: 1.5px solid #e26f0b83;
+     box-shadow: 0 5px 20px rgba(198, 154, 84, 0.7);
+}
 @media (min-width: 640px) {
   .flip-card {
     width: 16rem;
@@ -233,10 +236,13 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  
 }
 
 .flip-card.is-hovered .flip-card-inner {
   transform: rotateY(180deg);
+  
+  
 }
 
 .flip-card-front,

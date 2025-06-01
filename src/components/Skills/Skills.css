@@ -4,15 +4,20 @@
   padding: 30px 10px;
   text-align: center;
   background-color: #060417;
-  font-family: 'Arial', sans-serif;
   color: #f0f0f0;
 }
 
 .skills-section h2 {
-  font-size: 2.5em;
+  
   margin-bottom: 40px;
-  color: #e0e0e0;
-  text-transform: uppercase;
+  color: #8e4e4e;
+  font-size: 50px;
+   background-image: linear-gradient(90deg, #a993fe 0%, #7e61e7 100%);
+   background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  
   letter-spacing: 2px;
 }
 
@@ -35,7 +40,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 10px;
 }
 
 .skill-item {
@@ -85,46 +90,18 @@
     transform: translateY(0) scale(1);
   }
   25% {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-10px) scale(1.02);
   }
   50% {
-    transform: translateY(5px) scale(0.98);
+    transform: translateY(7px) scale(0.98);
   }
   75% {
-    transform: translateY(-3px) scale(1.01);
+    transform: translateY(-7px) scale(1.01);
   }
 }
 
-.wave-animation::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, #4CAF50, #2196F3, #9C27B0);
-  background-size: 200% 200%;
-  animation: waveEffect 8s infinite linear;
-  border-radius: 50%;
-  opacity: 0.4;
-  transform: translate(-25%, -25%);
-  z-index: 1;
-}
 
-@keyframes waveEffect {
-  0% {
-    transform: translate(-25%, -25%) rotate(0deg);
-    background-position: 0% 50%;
-  }
-  50% {
-    transform: translate(-75%, -25%) rotate(180deg);
-    background-position: 100% 50%;
-  }
-  100% {
-    transform: translate(-25%, -25%) rotate(360deg);
-    background-position: 0% 50%;
-  }
-}
+
 
 @media (max-width: 768px) {
   .skill-item {

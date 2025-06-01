@@ -15,11 +15,14 @@
     margin: 0 auto;
     
 }
-
+#connect{
+    
+    text-decoration: none;
+}
 .logo{
  width:70px;
  height: 70px;
- border-radius: 300px;
+ border-radius: 50%;
  cursor: pointer;
   border: 1px solid transparent; /* Always allocate space for the border */
     box-sizing: border-box;       /* Include padding and border in the element's total size */

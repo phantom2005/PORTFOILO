@@ -22,10 +22,10 @@ const About = () => {
           </div>
           <div className="about-text">
             <p>
-              Hi! I'm Vaibhav, an aspiring innovator currently pursuing my B.Tech in **Computer Science (AI) at KIET Group of Institutions.
+              Hi! I'm Vaibhav, an aspiring innovator currently pursuing my B.Tech in Computer Science (AI) at KIET Group of Institutions.
             </p>
             <p>
-              Beyond the classroom, I'm a creative soul with a burning passion for discovery across **AI, SDET, and web development. My journey in technology is deeply intertwined with my love for exploring the unknown—a personal quest to understand how things work and how they can be made better. I thrive on translating intricate challenges into intuitive, high-impact solutions that truly make a difference.
+              Beyond the classroom, I'm a creative soul with a burning passion for discovery across AI, SDET, and web development. My journey in technology is deeply intertwined with my love for exploring the unknown—a personal quest to understand how things work and how they can be made better. I thrive on translating intricate challenges into intuitive, high-impact solutions that truly make a difference.
             </p>
           </div>
         </div>
