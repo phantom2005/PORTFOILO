@@ -56,7 +56,7 @@ const Footer = () => {
          </div> */}
         {/* ////////////////////////////////https://www.youtube.com/watch?v=FRRlFLfdvBE//////////////////////////////////// */}
         <div className="foo-col">
-          <h3>NEWSLETTER</h3>
+          <h3>GET IN TOUCH</h3>
 <form>
   <input
     type="email"

@@ -19,9 +19,9 @@ const projects = [
     description:
       "Empower your agricultural activities with our advanced AI-integrated web application. SmartFarm AI provides farmers with cutting-edge tools.",
     image: "\\assets\\projectpic\\jivanamirt.jpeg",
-    tags: ["HTML", "CSS", "JAVASCRIPT", "MONGODB"],
+    tags: ["HTML", "CSS", "JAVASCRIPT", "MONGODB","FLASK"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/phantom2005/Jivanamrta",
   },
   {
     id: 3,
@@ -39,15 +39,15 @@ const projects = [
     description:
       "A classic Tic Tac Toe for interactive gameplay. Place your X's and O's and try to get three in a row!",
     image: "\\assets\\projectpic\\gamepic.jpg",
-    tags: ["React", "Node.js", "Stripe"],
+    tags: ["HTML", "JAVASCRIPT", "CSS"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/phantom2005/TIC-TAC-TOE",
   },
 
   {
     id: 5,
     title: "ASHRAY",
-    description: "!! DETAILS ARE  LOCKED DUE TO AN AGREEMENT!!",
+    description: "!!PRIVATE!!",
     image: "\\assets\\projectpic\\ashray.jpeg",
     tags: [],
     // demoUrl: "#",

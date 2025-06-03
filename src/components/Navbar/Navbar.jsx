@@ -15,10 +15,10 @@ const Navbar = () => {
 
         {/* Desktop menu and contact button */}
         <ul className={`menu-items-list ${isMenuOpen ? "active" : ""}`}>
-          <li><a href="#home" className="menu-item" onClick={toggleMenu}>HOME</a></li>
+          <li><a href="#" className="menu-item" onClick={toggleMenu}>HOME</a></li>
           <li><a href="#about" className="menu-item" onClick={toggleMenu}>ABOUT</a></li>
           <li><a href="#" className="menu-item" onClick={toggleMenu}>SKILLS</a></li>
-          <li><a href="Projects" className="menu-item" target="_blank" rel="noopener noreferrer">WORK</a></li>
+          <li><a href="#Projects" className="menu-item" target="_blank" rel="noopener noreferrer">WORK</a></li>
          <a id='connect' href='https://www.linkedin.com/in/vaibhav-agrawal-3aa79229b/'> <button className="contact-btn">CONNECT +</button></a>
         </ul>
 
