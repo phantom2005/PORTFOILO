@@ -44,13 +44,17 @@ const CertificationsSlider = () => {
         const firstCard = sliderTrackRef.current.querySelector(`.certificationCard`);
 
         if (firstCard) {
-          const individualCardWidth = firstCard.offsetWidth + parseFloat(getComputedStyle(firstCard).marginRight || 0) + parseFloat(getComputedStyle(firstCard).marginLeft || 0);
+          // Use clientWidth to get the element's inner width (excluding padding/border)
+          // For accurate total width including margins, you'd typically need to compute actual rendered styles.
+          // A safer approach for initial calculation for an infinite slider is to estimate or use a known card width.
+          // For now, let's assume margin-right is consistent if any.
+          const individualCardWidth = firstCard.offsetWidth + parseFloat(getComputedStyle(firstCard).marginRight || '0');
           const originalContentWidth = individualCardWidth * totalCards;
           setSliderWidth(originalContentWidth);
 
-          const speedFactor = 0.1;
-          const duration = originalContentWidth / speedFactor;
-          setAnimationDuration(`${duration / 1000}s`);
+          const speedFactor = 100; // Pixels per second. Adjust this value to control speed.
+          const durationInSeconds = originalContentWidth / speedFactor;
+          setAnimationDuration(`${durationInSeconds}s`);
         }
       }
     };
@@ -58,8 +62,9 @@ const CertificationsSlider = () => {
     calculateDimensions();
     window.addEventListener('resize', calculateDimensions);
     return () => window.removeEventListener('resize', calculateDimensions);
-  }, []);
+  }, []); // Empty dependency array means this runs once on mount
 
+  // Duplicating certifications to create an infinite loop effect
   const duplicatedCertifications = [
     ...certificationsData,
     ...certificationsData,
@@ -84,7 +89,7 @@ const CertificationsSlider = () => {
   };
 
   return (
-    <section className="certificationsSection">
+    <section id="certifications" className="certificationsSection">
       <h2>My Certifications</h2>
       <div className="sliderContainer">
         <div
@@ -131,10 +136,12 @@ const CertificationsSlider = () => {
           <div className="zoomedCard">
             <button className="closeButton" onClick={handleOverlayClick}>&times;</button>
             <div className="zoomedImageWrapper">
-              <img src={zoomedCert.image} alt={zoomedCert.alt || `Certificate Details`} className="zoomedImage" />
+              <img src={zoomedCert.image} alt={zoomedCert.alt || 'Certificate Details'} className="zoomedImage" />
             </div>
+            {/* Keeping the alt text for title, and explicitly showing Issuer/Date */}
             <h3>{zoomedCert.alt || 'Certificate Details'}</h3>
-            {/* Removed the 'Issued by' and 'Date' lines from the zoomed card */}
+            <p><strong>Issued by:</strong> {zoomedCert.issuer}</p>
+            <p><strong>Date:</strong> {zoomedCert.date}</p>
             {zoomedCert.verificationUrl && (
               <a
                 href={zoomedCert.verificationUrl}

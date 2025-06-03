@@ -1,9 +1,6 @@
 import React from 'react';
 import './Skills.css';
 
-
-
-
 import a from '../../assets2/skilllogo/c++.jpg';
 import b from '../../assets2/skilllogo/css.jpg';
 import c from '../../assets2/skilllogo/express.jpg';
@@ -24,34 +21,31 @@ import q from '../../assets2/skilllogo/sql.jpg';
 import r from '../../assets2/skilllogo/python.jpg';
 import s from '../../assets2/skilllogo/anaconda.jpg';
 
-
-
 const allSkills = [
-  { name: '', image:a },
-  { name: 'CSS', image:b },
-  { name: 'JavaScript', image:c },
-  { name: 'React.js', image:d },
-  { name: 'Node.js', image:e },
-  { name: 'Firebase', image:f },
-  { name: 'MongoDB', image:g },
-  { name: 'Git', image:h},
-  { name: 'VS Code', image:i },
-   { name: 'VS Code', image:j },
-    { name: 'VS Code', image:k },
-     { name: 'VS Code', image:l },
-      { name: 'VS Code', image:m },
-       { name: 'VS Code', image:n },
-        { name: 'VS Code', image:o }, 
-        { name: 'VS Code', image:p },
-         { name: 'VS Code', image:q }, 
-         { name: 'VS Code', image:r },
-          { name: 'VS Code', image:s },
-          
+  { name: 'C++', image: a },
+  { name: 'CSS', image: b },
+  { name: 'Express.js', image: c },
+  { name: 'Firebase', image: d },
+  { name: 'Git', image: e },
+  { name: 'HTML', image: f },
+  { name: 'Java', image: g },
+  { name: 'JavaScript', image: h },
+  { name: 'MongoDB', image: i },
+  { name: 'MySQL', image: j },
+  { name: 'Node.js', image: k },
+  { name: 'Pandas', image: l },
+  { name: 'PostgreSQL', image: m },
+  { name: 'React.js', image: n },
+  { name: 'Vercel', image: o },
+  { name: 'VS Code', image: p },
+  { name: 'SQL', image: q },
+  { name: 'Python', image: r },
+  { name: 'Anaconda', image: s },
 ];
 
 const Skills = () => {
   return (
-    <section className="skills-section">
+    <section id="skills" className="skills-section">
       <h2>Skills</h2>
       <div className="skills-container">
         {allSkills.map((skill, index) => (

@@ -8,19 +8,19 @@ const projects = [
     title: "SETLABS",
     description:
       "Find and customize your ideal office, cabin, or flexible workspace with ease. Your perfect spot, personalized.",
-    image: "\\assets\\projectpic\\setlabpic.jpg",
+    image: "/assets/projectpic/setlabpic.jpg",
     tags: ["HTML", "CSS", "JAVASCRIPT"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: null,
+    githubUrl: 'https://github.com/phantom2005/SETLABS',
   },
   {
     id: 2,
     title: "JIVANAMRIT",
     description:
       "Empower your agricultural activities with our advanced AI-integrated web application. SmartFarm AI provides farmers with cutting-edge tools.",
-    image: "\\assets\\projectpic\\jivanamirt.jpeg",
+    image: "/assets/projectpic/jivanamirt.jpeg",
     tags: ["HTML", "CSS", "JAVASCRIPT", "MONGODB","FLASK"],
-    demoUrl: "#",
+    demoUrl: '/assets/videoes/jivanamrit.mp4',
     githubUrl: "https://github.com/phantom2005/Jivanamrta",
   },
   {
@@ -28,45 +28,40 @@ const projects = [
     title: "HIVEMIND",
     description:
       "This full-stack web application integrates blockchain technology to create a secure and transparent platform for managing job and internship opportunities.",
-    image: "\\assets\\projectpic\\hivehimdpic.png",
+    image: "/assets/projectpic/hivehimdpic.png",
     tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: "/assets/videoes/hivemind.mp4",
+    githubUrl: 'https://github.com/phantom2005/HIVEMIND/tree/main/hivemind-main',
   },
   {
     id: 4,
     title: "TIC-TAC-TOE",
     description:
       "A classic Tic Tac Toe for interactive gameplay. Place your X's and O's and try to get three in a row!",
-    image: "\\assets\\projectpic\\gamepic.jpg",
+    image: "/assets/projectpic/gamepic.jpg",
     tags: ["HTML", "JAVASCRIPT", "CSS"],
-    demoUrl: "#",
+    demoUrl: '/assets/videoes/tic-tac video.mp4',
     githubUrl: "https://github.com/phantom2005/TIC-TAC-TOE",
   },
-
   {
     id: 5,
     title: "ASHRAY",
-    description: "!!PRIVATE!!",
-    image: "\\assets\\projectpic\\ashray.jpeg",
+    description: "!!IN PROGRESS!!",
+    image: "/assets/projectpic/ashray.jpeg",
     tags: [],
-    // demoUrl: "#",
-    // githubUrl: "#",
   },
   {
     id: 6,
     title: "",
     description: "",
-    image: "\\assets\\projectpic\\nextpic.jpg",
+    image: "/assets/projectpic/nextpic.jpg",
     tags: [],
-    // demoUrl: "#",
-    // githubUrl: "#",
   },
 ];
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="projects-section">
+    <section id="Projects" className="projects-section">
       <div className="projects-container">
         <h2 className="projects-heading">
           {" "}
@@ -105,22 +100,26 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="project-card-links">
                   <div className="project-card-icon-links">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-icon-link"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-icon-link"
-                    >
-                      <Github size={20} />
-                    </a>
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-icon-link"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-icon-link"
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
