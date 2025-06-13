@@ -1,4 +1,3 @@
-/* General Section Styling */
 .certificationsSection {
   padding: 40px 20px;
   background-color: #f9f9f9;
@@ -14,7 +13,6 @@
   color: #19135e;
 }
 
-/* Slider Container */
 .sliderContainer {
   width: 100%;
   overflow: hidden;
@@ -28,20 +26,17 @@
   user-select: none;
 }
 
-/* Cursor change when actively dragging - JS will apply this */
 .sliderContainer.is-dragging,
 .sliderTrack[style*="cursor: grabbing"] {
   cursor: grabbing;
 }
 
-/* Slider Track */
 .sliderTrack {
   display: inline-flex;
   will-change: transform;
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Individual Certification Card */
 .certificationCard {
   min-width: 320px;
   max-width: 350px;
@@ -67,14 +62,12 @@
   box-shadow: 0 5px 20px rgba(126, 97, 231, 0.7);
 }
 
-/* When a card is zoomed, hide the original one in the slider */
 .zoomedCardHidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
 }
 
-/* Image Wrapper for aspect ratio control */
 .certificateImageWrapper {
   width: 100%;
   margin-bottom: 15px;
@@ -115,7 +108,6 @@
   text-decoration: underline;
 }
 
-/* --- Zoomed Card Styles --- */
 .overlay {
   position: fixed;
   top: 0;
@@ -210,7 +202,6 @@
   color: #777;
 }
 
-/* Keyframe Animations for opening/closing */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -221,7 +212,6 @@
   to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
-/* Responsive Adjustments for Zoomed Card */
 @media (max-width: 900px) {
   .zoomedCard {
     width: 65vw;
@@ -276,5 +266,45 @@
     font-size: 1.8em;
     top: 10px;
     right: 10px;
+  }
+}
+
+@media (min-width: 901px) {
+  .zoomedCard {
+    top: calc(70px + (100vh - 70px) / 2);
+    transform: translate(-50%, -50%);
+    
+    /* Fixed size for the zoomed card on large screens */
+    width: 600px; /* Adjust this value for your desired fixed width */
+    height: 70vh; /* Adjust this value for your desired fixed height */
+    max-width: 90vw; /* Ensure it doesn't get too wide on very large screens */
+    max-height: calc(100vh - 70px - 40px); /* Ensure it doesn't exceed viewport with navbar */
+    
+    overflow-y: auto;
+    padding: 20px; /* Simplified padding, ensures content doesn't touch edges */
+  }
+
+  .zoomedImageWrapper {
+    /* Make wrapper take up available height for image, minus text content */
+    flex-grow: 1; /* Allows it to take up remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Reduced margin, as image will dictate its own space */
+  }
+
+  .zoomedImage {
+    width: 100%;
+    height: 100%; /* Make image fill the wrapper */
+    object-fit: contain; /* Important: maintains aspect ratio */
+    border-radius: 8px;
+  }
+
+  .zoomedCard h3,
+  .zoomedCard p,
+  .zoomedCard a {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-shrink: 0; /* Prevents text from shrinking to make space for image */
   }
 }
