@@ -1,21 +1,24 @@
 .hero-section {
-  padding: 4px 7vw;
+  padding: 1.5rem 1rem;
   font-family: sans-serif;
   margin-top: 10px;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    padding-left: 7vw;
-    padding-right: 7vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
     margin-top: 6rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-section {
-    padding-left: 20vw;
-    padding-right: 20vw;
+    padding-left: 4rem;
+    padding-right: 4rem;
     margin-top: 6rem;
   }
 }
@@ -25,17 +28,20 @@
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
   .hero-content {
     flex-direction: row;
+    gap: 4rem;
   }
 }
 
 .hero-text-container {
   text-align: center;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
+  max-width: 500px;
 }
 
 @media (min-width: 768px) {
@@ -43,6 +49,7 @@
     width: 50%;
     text-align: left;
     margin-top: 0;
+    max-width: none;
   }
 }
 
@@ -70,7 +77,7 @@
   font-size: 2rem;
   font-weight: bold;
   color: white;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   line-height: 1.25;
 }
 
@@ -139,7 +146,7 @@
   flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
-  align-items:center;
+  align-items: center;
   padding-bottom: 25px;
 }
 
@@ -172,7 +179,6 @@
 
 .hero-cv-button {
   background: linear-gradient(90deg, #8245ec, #a855f7);
-  
 }
 
 .hero-connect-button {
@@ -184,15 +190,15 @@
 .hero-cv-button:hover,
 .hero-connect-button:hover {
   transform: scale(1.05);
-  
-  background:transparent;
+  background: transparent;
   outline: 1.5px solid #a993fe;
-    box-shadow: 0 5px 20px rgba(126, 97, 231, 0.7);
+  box-shadow: 0 5px 20px rgba(126, 97, 231, 0.7);
 }
 
 .hero-image-container {
   display: flex;
   justify-content: center;
+  padding: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -203,29 +209,34 @@
 
 .flip-card {
   background-color: transparent;
-  width: 12rem;
+  width: 10rem;
   height: 10rem;
   perspective: 1000px;
   border: 1px solid #8b5cf6;
   border-radius: 9999px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(130, 69, 236, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.flip-card:hover{
-      outline: 1.5px solid #e26f0b83;
-     box-shadow: 0 5px 20px rgba(198, 154, 84, 0.7);
+
+.flip-card:hover {
+  outline: 1.5px solid #e26f0b83;
+  box-shadow: 0 5px 20px rgba(198, 154, 84, 0.7);
 }
+
 @media (min-width: 640px) {
   .flip-card {
-    width: 16rem;
-    height: 16rem;
+    width: 14rem;
+    height: 14rem;
   }
 }
 
 @media (min-width: 768px) {
   .flip-card {
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
   }
 }
 
@@ -236,13 +247,10 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  
 }
 
 .flip-card.is-hovered .flip-card-inner {
   transform: rotateY(180deg);
-  
-  
 }
 
 .flip-card-front,

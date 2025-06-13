@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import './CertificationsSlider.css';
 
+// Import your certificate images
 import html from '../../assets2/cerificates/html-css.jpg';
 import webthree from '../../assets2/cerificates/web3.jpg';
 import fltp1 from '../../assets2/cerificates/fltp1day.jpg';
@@ -33,38 +34,129 @@ const certificationsData = [
 
 const CertificationsSlider = () => {
   const sliderTrackRef = useRef(null);
-  const [sliderWidth, setSliderWidth] = useState(0);
-  const [animationDuration, setAnimationDuration] = useState('0s');
+  const animationFrameId = useRef(null);
+  const lastTime = useRef(0);
+
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentTranslateX, setCurrentTranslateX] = useState(0);
+  const [startTranslateX, setStartTranslateX] = useState(0);
+  const dragDistanceRef = useRef(0);
+
+  const [autoScrollSpeed] = useState(150); // Set desired scroll speed here (pixels per second)
+  const autoScrollRef = useRef(autoScrollSpeed);
+
   const [zoomedCert, setZoomedCert] = useState(null);
 
-  useEffect(() => {
-    const calculateDimensions = () => {
-      if (sliderTrackRef.current) {
-        const totalCards = certificationsData.length;
-        const firstCard = sliderTrackRef.current.querySelector(`.certificationCard`);
-
-        if (firstCard) {
-          // Use clientWidth to get the element's inner width (excluding padding/border)
-          // For accurate total width including margins, you'd typically need to compute actual rendered styles.
-          // A safer approach for initial calculation for an infinite slider is to estimate or use a known card width.
-          // For now, let's assume margin-right is consistent if any.
-          const individualCardWidth = firstCard.offsetWidth + parseFloat(getComputedStyle(firstCard).marginRight || '0');
-          const originalContentWidth = individualCardWidth * totalCards;
-          setSliderWidth(originalContentWidth);
-
-          const speedFactor = 100; // Pixels per second. Adjust this value to control speed.
-          const durationInSeconds = originalContentWidth / speedFactor;
-          setAnimationDuration(`${durationInSeconds}s`);
+  const getOriginalContentWidth = useCallback(() => {
+    if (sliderTrackRef.current) {
+      const cardElements = sliderTrackRef.current.querySelectorAll('.certificationCard');
+      if (cardElements.length > 0) {
+        let totalWidth = 0;
+        for (let i = 0; i < certificationsData.length; i++) {
+          const card = cardElements[i];
+          totalWidth += card.getBoundingClientRect().width + parseFloat(getComputedStyle(card).marginRight || '0');
         }
+        return totalWidth;
       }
+    }
+    return 0;
+  }, []);
+
+  const animateScroll = useCallback((timestamp) => {
+    if (!lastTime.current) lastTime.current = timestamp;
+    const deltaTime = timestamp - lastTime.current;
+    lastTime.current = timestamp;
+
+    if (!isDragging && sliderTrackRef.current && !zoomedCert) {
+      setCurrentTranslateX(prevX => {
+        let newX = prevX - (autoScrollRef.current * (deltaTime / 1000));
+        const originalWidth = getOriginalContentWidth();
+
+        if (Math.abs(newX) >= originalWidth) {
+          newX += originalWidth;
+        }
+        return newX;
+      });
+    }
+    animationFrameId.current = requestAnimationFrame(animateScroll);
+  }, [isDragging, zoomedCert, getOriginalContentWidth]);
+
+  const startAutoScroll = useCallback(() => {
+    if (!animationFrameId.current) {
+      animationFrameId.current = requestAnimationFrame(animateScroll);
+    }
+  }, [animateScroll]);
+
+  const stopAutoScroll = useCallback(() => {
+    if (animationFrameId.current) {
+      cancelAnimationFrame(animationFrameId.current);
+      animationFrameId.current = null;
+      lastTime.current = 0;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (sliderTrackRef.current) {
+      sliderTrackRef.current.style.transform = `translateX(${currentTranslateX}px)`;
+    }
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, [currentTranslateX, startAutoScroll, stopAutoScroll]);
+
+  useEffect(() => {
+    autoScrollRef.current = autoScrollSpeed;
+  }, [autoScrollSpeed]);
+
+  const onPointerDown = useCallback((e) => {
+    if (e.button !== 0 && e.pointerType !== 'touch') return;
+
+    setIsDragging(true);
+    setStartX(e.clientX || e.touches[0]?.clientX);
+    setStartTranslateX(currentTranslateX);
+    dragDistanceRef.current = 0;
+    stopAutoScroll();
+
+    if (sliderTrackRef.current) {
+      sliderTrackRef.current.style.cursor = 'grabbing';
+      sliderTrackRef.current.style.transition = 'none';
+    }
+    e.preventDefault();
+  }, [currentTranslateX, stopAutoScroll]);
+
+  const onPointerMove = useCallback((e) => {
+    if (!isDragging) return;
+
+    const currentX = e.clientX || e.touches[0]?.clientX;
+    const walk = currentX - startX;
+    dragDistanceRef.current = Math.abs(walk);
+
+    setCurrentTranslateX(startTranslateX + walk);
+  }, [isDragging, startX, startTranslateX]);
+
+  const onPointerUp = useCallback(() => {
+    if (!isDragging) return;
+
+    setIsDragging(false);
+    if (sliderTrackRef.current) {
+      sliderTrackRef.current.style.cursor = 'grab';
+      sliderTrackRef.current.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    }
+    startAutoScroll();
+  }, [isDragging, startAutoScroll]);
+
+  useEffect(() => {
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+    window.addEventListener('pointerleave', onPointerUp);
+
+    return () => {
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+      window.removeEventListener('pointerleave', onPointerUp);
     };
+  }, [onPointerUp]);
 
-    calculateDimensions();
-    window.addEventListener('resize', calculateDimensions);
-    return () => window.removeEventListener('resize', calculateDimensions);
-  }, []); // Empty dependency array means this runs once on mount
-
-  // Duplicating certifications to create an infinite loop effect
   const duplicatedCertifications = [
     ...certificationsData,
     ...certificationsData,
@@ -72,21 +164,23 @@ const CertificationsSlider = () => {
     ...certificationsData,
   ];
 
-  const handleCardClick = (cert) => {
+  const handleCardClick = useCallback((cert, event) => {
+    const CLICK_TOLERANCE = 5;
+    if (dragDistanceRef.current > CLICK_TOLERANCE) {
+      event.stopPropagation();
+      return;
+    }
+
     if (!zoomedCert) {
       setZoomedCert(cert);
-      if (sliderTrackRef.current) {
-        sliderTrackRef.current.style.animationPlayState = 'paused';
-      }
+      stopAutoScroll();
     }
-  };
+  }, [zoomedCert, stopAutoScroll]);
 
-  const handleOverlayClick = () => {
+  const handleOverlayClick = useCallback(() => {
     setZoomedCert(null);
-    if (sliderTrackRef.current) {
-      sliderTrackRef.current.style.animationPlayState = 'running';
-    }
-  };
+    startAutoScroll();
+  }, [startAutoScroll]);
 
   return (
     <section id="certifications" className="certificationsSection">
@@ -95,19 +189,15 @@ const CertificationsSlider = () => {
         <div
           ref={sliderTrackRef}
           className="sliderTrack"
-          style={{
-            '--_slider-width': `${sliderWidth}px`,
-            '--_animation-duration': animationDuration,
-            minWidth: certificationsData.length > 0 ? 'auto' : '100%',
-          }}
-          onMouseEnter={() => { if (!zoomedCert && sliderTrackRef.current) sliderTrackRef.current.style.animationPlayState = 'paused'; }}
-          onMouseLeave={() => { if (!zoomedCert && sliderTrackRef.current) sliderTrackRef.current.style.animationPlayState = 'running'; }}
+          style={{ transform: `translateX(${currentTranslateX}px)` }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
         >
           {duplicatedCertifications.map((cert, index) => (
             <div
-              key={`${cert.id}-${index}`}
+              key={index}
               className={`certificationCard ${zoomedCert?.id === cert.id ? 'zoomedCardHidden' : ''}`}
-              onClick={() => handleCardClick(cert)}
+              onClick={(e) => handleCardClick(cert, e)}
             >
               <div className="certificateImageWrapper">
                 <img src={cert.image} alt={cert.alt || `Certificate from ${cert.issuer}`} className="certificateImage" />
@@ -138,7 +228,6 @@ const CertificationsSlider = () => {
             <div className="zoomedImageWrapper">
               <img src={zoomedCert.image} alt={zoomedCert.alt || 'Certificate Details'} className="zoomedImage" />
             </div>
-            {/* Keeping the alt text for title, and explicitly showing Issuer/Date */}
             <h3>{zoomedCert.alt || 'Certificate Details'}</h3>
             <p><strong>Issued by:</strong> {zoomedCert.issuer}</p>
             <p><strong>Date:</strong> {zoomedCert.date}</p>

@@ -25,7 +25,7 @@ const Footer = () => {
           <p>KIET GROUP OF INSTITUTION</p> {/* Corrected typo */}
           <p>GHAZIABAD, UTTAR PRADESH</p>
           <p>201206</p>
-   <p className="foo-email-id">E-MAIL:<a href="mailto:agrawalvaibhavbandhan.2005@gmail.com">agrawalvaibhavbandhan.2005@gmail.com</a></p>
+   <p className="foo-email-id">MAIL:<a href="mailto:agrawalvaibhavbandhan.2005@gmail.com">agrawalvaibhavbandhan.2005@gmail.com</a></p>
           <h4>WHATSAPP : <a href="tel:+919555092584">+91 9555092584</a></h4>
         </div>
         {/* /////////////////////////////////////ISKO ABHI COOMENT KARDIYA FUTRE MAI JARROT PADI TOH RELESE KARDENGE  */}

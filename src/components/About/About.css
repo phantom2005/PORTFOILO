@@ -1,7 +1,7 @@
-/* src/components/About.css */
+
 
 .about-section {
-  padding: 10px 10px 20px 10px;
+  padding: 50px 1.5rem;
   background: linear-gradient(135deg, #f0f4f8 0%, #e0e7ee 100%);
   color: #333;
   text-align: center;
@@ -10,9 +10,9 @@
 }
 
 .about-container {
-  max-width: 80%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 1rem;
   position: relative;
 }
 
@@ -20,7 +20,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2.5em;
   margin-bottom: 40px;
-color: #19135e;
+  color: #19135e;
   position: relative;
   display: inline-block;
   letter-spacing: 0.5px;
@@ -32,29 +32,29 @@ color: #19135e;
   left: 50%;
   bottom: -10px;
   transform: translateX(-50%);
-  width:none;
+  width: 0;
   height: 3px;
   background-color: #19135e;
   border-radius: 3px;
   transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
-/* .about-title:hover::after {
+.about-title:hover::after {
   width: 150px;
-  background-color:  #a993fe;
-} */
+  background-color: #a993fe;
+}
 
 .about-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
   opacity: 0;
   transform: translateY(30px);
   animation: slideInUp 0.8s ease-out forwards;
   animation-delay: 0.2s;
   background-color: #fff;
-  padding: 30px;
+  padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(114, 41, 171, 0.08);
 }
@@ -70,7 +70,7 @@ color: #19135e;
   .about-content {
     flex-direction: row;
     text-align: left;
-    gap: 40px;
+    gap: 3rem;
   }
 }
 
@@ -78,10 +78,10 @@ color: #19135e;
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-   outline: 1px solid #99262633;
-    box-shadow: 0 5px 40px rgba(160, 39, 39, 0.7);
-width: 200px;
-  height: 200px;
+  outline: 1px solid #99262633;
+  box-shadow: 0 5px 40px rgba(160, 39, 39, 0.7);
+  width: 12rem;
+  height: 12rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,6 +106,7 @@ width: 200px;
   font-size: 1em;
   font-family: 'Open Sans', sans-serif;
   color: #555;
+  max-width: 600px;
 }
 
 .about-text p {
@@ -123,7 +124,7 @@ width: 200px;
 
 @media (max-width: 767px) {
   .about-section {
-    padding: 50px 15px;
+    padding: 50px 1rem;
   }
 
   .about-title {
@@ -132,13 +133,13 @@ width: 200px;
   }
 
   .about-content {
-    padding: 20px;
-    gap: 25px;
+    padding: 1.5rem;
+    gap: 1.5rem;
   }
 
   .about-image-wrapper {
-    width: 160px;
-    height: 160px;
+    width: 10rem;
+    height: 10rem;
   }
 }
 
