@@ -54,7 +54,7 @@ const projects = [
     id: 6,
     title: "PORTFOLIO",
     description: "A dynamic, component-based web application showcasing my projects and skills, built with React and bit touch of my creativity.",
-    image: "/assets/projectpic/portfolio.jpg ",
+    image: "/assets/projectpic/portfolio.png ",
     tags: [],
      githubUrl: "https://github.com/phantom2005/PORTFOILO",
   },
