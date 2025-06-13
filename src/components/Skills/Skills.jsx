@@ -20,6 +20,10 @@ import p from '../../assets2/skilllogo/vscode.jpg';
 import q from '../../assets2/skilllogo/sql.jpg';
 import r from '../../assets2/skilllogo/python.jpg';
 import s from '../../assets2/skilllogo/anaconda.jpg';
+import t from '../../assets2/skilllogo/lama.png';
+import u from '../../assets2/skilllogo/docker.png';
+import v from '../../assets2/skilllogo/tally.png';
+import w from '../../assets2/skilllogo/tallyprime.png';
 
 const allSkills = [
   { name: 'C++', image: a },
@@ -41,6 +45,10 @@ const allSkills = [
   { name: 'SQL', image: q },
   { name: 'Python', image: r },
   { name: 'Anaconda', image: s },
+  { name: 'Anaconda', image: t },
+  { name: 'Anaconda', image: u },
+  { name: 'Anaconda', image: v },
+  { name: 'Anaconda', image: w },
 ];
 
 const Skills = () => {

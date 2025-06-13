@@ -50,13 +50,23 @@ const projects = [
     image: "/assets/projectpic/ashray.jpeg",
     tags: [],
   },
-  {
+   {
     id: 6,
+    title: "PORTFOLIO",
+    description: "A dynamic, component-based web application showcasing my projects and skills, built with React and bit touch of my creativity.",
+    image: "/assets/projectpic/portfolio.jpg ",
+    tags: [],
+     githubUrl: "https://github.com/phantom2005/PORTFOILO",
+  },
+  {
+    id: 7,
     title: "",
     description: "",
     image: "/assets/projectpic/nextpic.jpg",
     tags: [],
+    
   },
+ 
 ];
 
 export const ProjectsSection = () => {

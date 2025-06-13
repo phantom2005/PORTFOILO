@@ -16,19 +16,19 @@ import hwd from '../../assets2/cerificates/hwd.jpg'
 import bvest from '../../assets2/cerificates/bvest.jpg';
 
 const certificationsData = [
-  { id: 1, image: fiftydays, issuer: '50 Days of Code', date: 'Jan 2023', alt: '50 Days of Code Challenge', verificationUrl: '' },
-  { id: 2, image: html, issuer: 'The Odin Project', date: 'Mar 2023', alt: 'HTML & CSS Fundamentals', verificationUrl: '' },
-  { id: 3, image: webthree, issuer: 'Alchemy University', date: 'May 2023', alt: 'Web3 Development Bootcamp', verificationUrl: '' },
-  { id: 4, image: fltp1, issuer: 'FLTP', date: 'Jul 2023', alt: 'FLTP Day 1 Workshop', verificationUrl: '' },
-  { id: 5, image: fltp2, issuer: 'FLTP', date: 'Sep 2023', alt: 'FLTP Day 2 Workshop', verificationUrl: '' },
-  { id: 6, image: blend, issuer: 'DevBlend Hackathon', date: 'Nov 2023', alt: 'DevBlend Hackathon Participant', verificationUrl: '' },
-  { id: 7, image: devup, issuer: 'Dev-Up Bootcamp', date: 'Dec 2023', alt: 'Dev-Up Frontend Bootcamp', verificationUrl: '' },
-  { id: 8, image: tally, issuer: 'Tally Education', date: 'Jan 2024', alt: 'Tally.ERP 9 Certified', verificationUrl: '' },
-  { id: 9, image: maybadge, issuer: 'MayLeet Challenge', date: 'May 2024', alt: 'MayLeet Coding Challenge', verificationUrl: '' },
-  { id: 10, image: palo, issuer: 'Palo Alto Networks', date: 'Jun 2024', alt: 'Palo Alto Network Security', verificationUrl: '' },
-  { id: 11, image: js, issuer: 'FreeCodeCamp', date: 'Jul 2024', alt: 'JavaScript Algorithms and Data Structures', verificationUrl: '' },
-  { id: 12, image: hwd, issuer: 'HWD Summit', date: 'Aug 2024', alt: 'HWD Summit Attendee', verificationUrl: '' },
-  { id: 13, image: bvest, issuer: 'B-Vest Tech Fest', date: 'Sep 2024', alt: 'B-Vest Tech Fest Participant', verificationUrl: '' },
+  { id: 1, image: fiftydays, issuer: 'LEETCODE', date: 'MAY 2025', alt: '50 Days of Code Challenge', verificationUrl: '' },
+  { id: 2, image: html, issuer: 'UDEMY', date: 'MAY 2025', alt: 'HTML & CSS Fundamentals', verificationUrl: '' },
+  { id: 3, image: webthree, issuer: 'UDMEY', date: 'May 2025', alt: 'Web3 Development Bootcamp', verificationUrl: '' },
+  { id: 4, image: fltp1, issuer: 'KIET GROUP OF INSTUTION', date: 'DEC 2023', alt: 'FLTP Day 1 Workshop', verificationUrl: '' },
+  { id: 5, image: fltp2, issuer: 'KIET GROUP OF INSTUTION', date: 'JAN 2024', alt: 'FLTP Day 2 Workshop', verificationUrl: '' },
+  { id: 6, image: blend, issuer: 'KIET(TECHNOCRATS) ', date: 'JAN 2024', alt: 'DevBlend Hackathon Participant', verificationUrl: '' },
+  { id: 7, image: devup, issuer: 'KIET(DevUP)', date: 'DEC 2023', alt: 'Dev-Up Frontend Bootcamp', verificationUrl: '' },
+  { id: 8, image: tally, issuer: 'MAGPIE-TECH', date: 'AUG 2022', alt: 'Tally.ERP 9 Certified', verificationUrl: '' },
+  { id: 9, image: maybadge, issuer: 'LEETCODE', date: 'MAY 2025', alt: 'MayLeet Coding Challenge', verificationUrl: '' },
+  { id: 10, image: palo, issuer: 'Palo Alto Networks', date: 'MAY 2025', alt: 'Palo Alto Network Security', verificationUrl: '' },
+  { id: 11, image: js, issuer: 'UDEMY', date: 'MAY 2025', alt: 'JavaScript Algorithms and Data Structures', verificationUrl: '' },
+  { id: 12, image: hwd, issuer: 'GL-BAJAJ(HACK WITH DELHI)', date: 'MAY 2024', alt: 'HWD Summit Attendee', verificationUrl: '' },
+  { id: 13, image: bvest, issuer: 'BHARTIYA VIDHYAPEETH(BVP-HEX)', date: 'OCT 2024', alt: 'B-Vest Tech Fest Participant', verificationUrl: '' },
 ];
 
 const CertificationsSlider = () => {

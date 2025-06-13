@@ -25,8 +25,8 @@ const Footer = () => {
           <p>KIET GROUP OF INSTITUTION</p> {/* Corrected typo */}
           <p>GHAZIABAD, UTTAR PRADESH</p>
           <p>201206</p>
-   <p className="foo-email-id"><a href="mailto:agrawalvaibhavbandhan.2005@gmail.com">agrawalvaibhavbandhan.2005@gmail.com</a></p>
-          <h4><a href="tel:+919918810417">+91 9918810417</a></h4>
+   <p className="foo-email-id">E-MAIL:<a href="mailto:agrawalvaibhavbandhan.2005@gmail.com">agrawalvaibhavbandhan.2005@gmail.com</a></p>
+          <h4>WHATSAPP : <a href="tel:+919555092584">+91 9555092584</a></h4>
         </div>
         {/* /////////////////////////////////////ISKO ABHI COOMENT KARDIYA FUTRE MAI JARROT PADI TOH RELESE KARDENGE  */}
         {/* <div className="foo-col">
@@ -74,7 +74,7 @@ const Footer = () => {
 
 
 
-<a href="https://www.instagram.com/agrawal_ji.?igsh=MW5scnkwN3JnYWlqYQ==" target="noopener noreferrer">
+<a href="https://www.instagram.com/agrawal_ji.?igsh=MXU1bDdwa3F1NHF2cg==" target="noopener noreferrer">
   <img src="/assets/sklog/instagram.jpg" alt="Instagram" className="foo-icon" />
 </a>
 
