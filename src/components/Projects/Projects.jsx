@@ -58,14 +58,24 @@ const projects = [
     tags: [],
      githubUrl: "https://github.com/phantom2005/PORTFOILO",
   },
-  {
+
+   {
     id: 7,
+    title: "TARANG",
+    description: "Tagrang is a secure, AI-powered online music academy providing musicians of all levels with a personalized AI practice buddy and real-time performance feedback.",
+    image: "/assets/projectpic/tarang.jpg ",
+    tags: [],
+     githubUrl: "https://github.com/phantom2005/TARANG",
+  },
+  {
+    id: 8,
     title: "",
     description: "",
     image: "/assets/projectpic/nextpic.jpg",
     tags: [],
     
   },
+
  
 ];
 
