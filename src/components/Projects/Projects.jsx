@@ -55,16 +55,16 @@ const projects = [
     title: "PORTFOLIO",
     description: "A dynamic, component-based web application showcasing my projects and skills, built with React and bit touch of my creativity.",
     image: "/assets/projectpic/portfolio.png ",
-    tags: [],
-     githubUrl: "https://github.com/phantom2005/PORTFOILO",
+    tags: ["CSS", "JAVASCRIPT","React","Vercel", "MONGODB"],
+    githubUrl: "https://github.com/phantom2005/PORTFOILO",
   },
 
    {
     id: 7,
     title: "TARANG",
-    description: "Tagrang is a secure, AI-powered online music academy providing musicians of all levels with a personalized AI practice buddy and real-time performance feedback.",
+    description: "Tarang is a secure, AI-powered online music academy providing musicians of all levels with a personalized AI practice buddy and real-time performance feedback.",
     image: "/assets/projectpic/tarang.jpg ",
-    tags: [],
+    tags: ["CSS", "Next.js", "MONGODB","..."],
      githubUrl: "https://github.com/phantom2005/TARANG",
   },
   {
